@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<base href="/" />
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Components and progressive enhancement - Adam Onishi</title>
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Web Components and progressive enhancement - Adam Onishi" />
+<meta property="og:description" content="I&#8217;m a big advocate when it comes to progressive enhancement. I believe we should be building the web with resilience in mind and think about all the different ways a browser could possibly render our sites. With or without JavaScript and when something breaks or when something is simply just not supported in the browser our &hellip;" />
+<meta property="og:url" content="2016/08/web-components-and-progressive-enhancement/" />
+<meta property="og:site_name" content="Adam Onishi" />
+<meta property="article:section" content="Development" />
+<meta property="article:published_time" content="2016-08-01T09:53:31+00:00" />
+<meta property="fb:admins" content="813620262" />
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+
+<link rel='stylesheet' id='fonts-css' href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic%3A400%2C400italic%2C700%7COpen+Sans%3A800%2C300%2C400&#038;ver=4.7.11' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css' href='contents/lib/jetpack/css/jetpack.css' type='text/css' media='all' />
+
+
+
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'>
+<link rel='dns-prefetch' href='//i0.wp.com'>
+<link rel='dns-prefetch' href='//i1.wp.com'>
+<link rel='dns-prefetch' href='//i2.wp.com'>
+<style>html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font-family: 'Gentium Book Basic', serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #3b3b3b;
+  background-color: #f5ecd9;
+}
+@media screen and (min-width: 37.5em) {
+  body {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 46.25em) {
+  body {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 55em) {
+  body {
+    font-size: 28px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 3.375em;
+  line-height: 1.25;
+}
+
+.post h2 {
+  font-size: 2em;
+}
+
+.single .post h1 {
+  font-size: 2em;
+}
+.single .post h2 {
+  font-size: 1.5em;
+}
+.single .post h3 {
+  font-size: 1.25em;
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin: 0 0 1.4em;
+}
+
+ul {
+  list-style: disc;
+}
+ul ul {
+  list-style: circle;
+}
+
+ol {
+  list-style: decimal;
+}
+ol ol {
+  list-style: lower-roman;
+}
+
+blockquote {
+  padding-left: 30px;
+  border-left: 4px solid #2BACB8;
+}
+
+a {
+  color: #e8275b;
+  text-decoration: none;
+  border-bottom: 2px solid #e8275b;
+}
+a:active {
+  position: relative;
+  top: 1px;
+}
+
+h1 a,
+h2 a {
+  color: #3b3b3b;
+  border-bottom: 0;
+}
+
+.align-left {
+  float: left;
+  text-align: left;
+}
+
+.align-right {
+  float: right;
+  text-align: right;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.container.inner {
+  max-width: 880px;
+}
+
+.global-header {
+  padding: 40px 0 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  border-bottom: 6px solid #2BACB8;
+}
+.global-header h1 {
+  margin-bottom: 0.175em;
+}
+.global-header p {
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+.global-footer {
+  width: 100%;
+  padding: 40px 0;
+  color: #F5ECD9;
+  background-color: #2BACB8;
+}
+.global-footer h2 {
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-col {
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  margin-right: 0;
+}
+@media screen and (min-width: 30em) {
+  .footer-col {
+    width: 40%;
+    min-height: 1px;
+    margin-right: 10%;
+  }
+}
+@media screen and (min-width: 55em) {
+  .footer-col {
+    width: 25%;
+    min-height: 1px;
+    margin-right: 5%;
+  }
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0 0 25px;
+  padding: 0;
+}
+.footer-col li {
+  line-height: 1;
+}
+.footer-col a {
+  color: #f5ecd9;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  border-bottom: 0;
+}
+
+.book-advert {
+  display: block;
+  max-width: 200px;
+  color: #fff;
+  border-bottom: 0;
+}
+.book-advert img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 10px;
+}
+
+.post {
+  margin-bottom: 40px;
+}
+.post header {
+  margin-bottom: 30px;
+}
+.post time {
+  color: #e8275b;
+}
+.post:after {
+  content: '';
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  border-bottom: 1px solid #2BACB8;
+}
+.post img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 1.4em auto 0;
+}
+.post .wp-caption-text {
+  margin-top: -1.4em;
+  padding: 7px 10px;
+  font-size: 14px;
+  font-size: .875rem;
+  background-color: #fff;
+}
+.post .flex-video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+}
+.post .flex-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page-nav {
+  margin-bottom: 2em;
+}
+</style> </head>
+<body class="post-template-default single single-post postid-1089 single-format-standard">
+<!--[if lt IE 9]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+<header class="global-header" role="banner">
+<div class="container">
+<h1><a href="">Adam Onishi</a></h1>
+<p class="tagline">Web developer and designer focusing on accessibility, progressive enhancement, and high quality code.</p>
+</div>
+<nav>
+<div class="container">
+<div class="menu"></div>
+</div>
+</nav>
+</header>
+<div class="container inner">
+<article role="main" class="post-1089 post type-post status-publish format-standard hentry category-development">
+<header>
+<h1>Web Components and progressive enhancement</h1>
+<p class="byline">
+Posted on <time>1st August, 2016</time>, in <a href="category/development/" rel="category tag">Development</a> </p>
+</header>
+<p>I&#8217;m a big advocate when it comes to progressive enhancement. I believe we should be building the web with resilience in mind and think about all the different ways a browser could possibly render our sites. With or without JavaScript and when something breaks or when something is simply just not supported in the browser our user chooses to view our site in.</p>
+<p>Lately, I&#8217;ve been looking into Web Components as part of my work on the <a href="http://origami.ft.com/">Origami team</a>. We&#8217;re looking into how Web Components will be used in our design system and how they will effect the way we create components. I&#8217;ve also been writing a couple of talks on the subject looking at the different ways of building components we have right now on the web. During this research I turned to the <a href="https://design-systems.slack.com/">Design Systems Slack</a> team, to ask whether there were any questions around Web Components that people thinking about design systems would like to know about. I had some really interesting responses from <a href="http://www.kaelig.fr/">Kaelig</a> and <a href="https://adactio.com/">Jeremy</a> on the subject of progressive enhancement and I thought it would be quite useful to share our discussion here as well.</p>
+<blockquote><p>
+<em>Kaelig:</em> I have a question! How do you deal with progressive enhancement? e.g. for buttons
+</p></blockquote>
+<p>This is a tricky area to deal with, if the <code>is=</code> attribute was being supported across all browsers it would be less of an issue, but Webkit keep pushing back on it. In fairness though I think this is an area where we&#8217;re going to have to employ different areas of the Web Components specs to get the best advantage. I wouldn’t make a <a href="https://w3c.github.io/webcomponents/spec/custom/">custom element</a> for a button, when we already have <code>&lt;button&gt;</code>. I’d maybe employ <a href="https://www.w3.org/TR/shadow-dom/">ShadowDOM</a> to help with encapsulated styles but apart from that I don’t see a great deal of benefit making a custom button element when we already have one. I think it&#8217;s a bit of a shame a lot of the Google/Polymer examples use buttons, as it’s really only tacking on some minor functionality that can be handled without the Web Components specs in most cases.</p>
+<blockquote><p>
+<em>Jeremy: </em>Kaelig&#8217;s question gets to the heart of web components for me. [&#8230;] The second issue is something I ask of any technology: &#8220;How well does it fail?&#8221; (an important corollary to &#8220;How well does it work?&#8221;). It&#8217;s the answer to that question that makes me comfortable persuing new CSS features, Service Workers, and the like, but very uncomfortable about monolithic technologies (like some client-side JavaScript frameworks) that require me to go &#8220;all in&#8221; on the technology. Until web components work well and fail well, I&#8217;m probably going to remain apprehensive about them. Support for &#8220;is=&#8221; would definitely help, but I also think that we could do with seeing examples of custom elements that borrow the design approach from HTML of elements like canvas, audio, video, and picture, where failing well has been given some thought. Does that make sense?
+</p></blockquote>
+<p>This concern definitely makes sense and a lot of what I’ve been thinking about too lately. There’s a lot you can pick and choose from in terms of the Web Components specs so it’s not essential that people go all-in on everything straight away.</p>
+<p>In terms of how well they will fail, well it depends mostly on what we class as ok in terms of failing. I’ve been thinking of a gallery component lately, where you’d have a custom element, say <code>&lt;o-gallery&gt;</code> for want of a better example, and simply populate it with images you want to display, with custom elements and shadow DOM you can add all the rest, controls/layout etc. Markup would be something like:</p>
+<pre><code>&lt;o-gallery&gt;
+  &lt;img src=""&gt;
+  &lt;img src=""&gt;
+  &lt;img src=""&gt;
+&lt;/o-gallery&gt;</code></pre>
+<p></p>
+<p>If none of the extra stuff loads, what do we get? Well you get 3 images on the page. You still get the content, but just none of the fancy interactivity.</p>
+<blockquote><p>
+<em>Kaelig:</em> buttons are a tricky one, I took this example on purpose. As an experiment I recently converted our Lightning Design System button component &amp; variants to <code>&lt;slds-button&gt;</code> web component and the result it produced was ridiculous (no PE!). Salesforce doesn&#8217;t do progressive enhancement anyway but still, that made me really annoyed at the spec.</p>
+<p>So let&#8217;s say you want to produce a WC library where your users don&#8217;t have to write any class names in their markup (styling done in the shadow DOM), you automatically fail at Progressive Enhancement. This is a shame because I think it would make sense to ship a WC framework rather than a CSS framework!
+</p></blockquote>
+<p>This is why it continues to trouble me that the first example we run to in web components are buttons. Buttons/links are pretty much always going to fail with PE because in that situation we will probably need <code>is=</code> which looks like it’s not going to happen. At least in webkit anyway. These built-in elements that have a lot of semantics and interactivity delivered through the browser are going to be really hard to replicate in WCs safely and in a progressively enhanced way. Even if we code all of those things back into the elements, the user still has to wait for all our code to download and parse before they get the fully working version. Whereas with a native button or anchor, the browser already has all that built-in.</p>
+<p>However, I completely disagree with Kaelig that there’s an automatic fail in progressive enhancement with WCs. There’s a fail if you don’t write code with progressive enhancement in mind, which has always been the case. It just means you have to write your components thinking about what they fall back to. Essentially all custom elements fallback to a <code>&lt;div&gt;</code> so you need to be able to handle that use case appropriately. This is the same case when it comes to <code>&lt;input type="date"&gt;</code>, you know that browsers will fail back to a text input, so you have to code around that, same thinking goes into using WCs, there’s just a bit more to it.</p>
+<blockquote><p>
+<em>Kaelig:</em> Let&#8217;s see where the spec leads us. In principle I&#8217;m very attached to web components but I&#8217;ve mostly been frustrated by the real world inadequacy of their current possibilities they offer. It seems to take a lot of effort to simply do a button in WC (that doesn&#8217;t even degrade well), when that&#8217;s actually the most common use case for modern web apps. I wonder what people like Alex Russell might have to say about this.
+</p></blockquote>
+<p>I think Kaelig sums up a lot of the frustration with the Web Components spec to date and I think it also might have a lot to do with the general lag of the specs being implemented in browsers. It&#8217;s taken over 5 years before we&#8217;ve been able to properly see things agreed by vendors and finally start to get integrated in a lot of places. In the time since they were proposed, a lot of frameworks and libraries have been released to look at working with a components based design system in JavaScript instead and now people are starting to get comfortable with those technology choices.</p>
+<p>I think Web Components will change the way we build websites. However, it&#8217;s going to take a while before people really start to get behind them. There are more real-world examples of custom elements and web components at the <a href="https://customelements.io/">Custom Elements website</a>, a lot more than just fancy buttons, which is a start. But there are still some unanswered questions around how a design system will come to fully utilise the web component specs and whether it will be the best route for developers and users both. I&#8217;m going to keep on writing about things as they come up and as we start to implement them in Origami, so hopefully that will be a worthwhile insight into a real-world design system with web components.</p>
+<div id="disqus_thread">
+<div id="dsq-content">
+<ul id="dsq-comments">
+<li class="post pingback">
+<p>Pingback: <a href='http://www.danielemilana.it/blog/collective-234/' rel='external nofollow' class='url'>Collective #234 - ADD_dm</a>()</p>
+</li>
+</li>
+<li class="post pingback">
+<p>Pingback: <a href='http://codango.com/extensible-web-components/' rel='external nofollow' class='url'>Extensible Web Components | Codango.Com</a>()</p>
+</li>
+</li>
+<li class="comment even thread-even depth-1" id="dsq-comment-304">
+<div id="dsq-comment-header-304" class="dsq-comment-header">
+<cite id="dsq-cite-304">
+<a id="dsq-author-user-304" href="http://danoc.me/" target="_blank" rel="nofollow">Daniel O&#8217;Connor</a>
+</cite>
+</div>
+<div id="dsq-comment-body-304" class="dsq-comment-body">
+<div id="dsq-comment-message-304" class="dsq-comment-message"><p>I&#8217;m excited to see what comes of experimenting with Web Components in Origami!</p>
+</div>
+</div>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-307">
+<div id="dsq-comment-header-307" class="dsq-comment-header">
+<cite id="dsq-cite-307">
+<a id="dsq-author-user-307" href="http://aaron-gustafson.com" target="_blank" rel="nofollow">Aaron Gustafson</a>
+</cite>
+</div>
+<div id="dsq-comment-body-307" class="dsq-comment-body">
+<div id="dsq-comment-message-307" class="dsq-comment-message"><p>With you 100%. I’m eager to see what we can do with Web Components but really disappointed by examples like &#8220;check it out: my whole site is a Web Component.&#8221; We can move forward without penalizing folks who aren’t running the latest &amp; greatest, have networking issues to deal with, etc. We can have both and progressive enhancement is the way to do it.</p>
+</div>
+</div>
+</li>
+<li class="comment even thread-even depth-1" id="dsq-comment-308">
+<div id="dsq-comment-header-308" class="dsq-comment-header">
+<cite id="dsq-cite-308">
+<span id="dsq-author-user-308">Paul</span>
+</cite>
+</div>
+<div id="dsq-comment-body-308" class="dsq-comment-body">
+<div id="dsq-comment-message-308" class="dsq-comment-message"><p>When aiming at progressive enhancement, reusability and interoperability in modular design systems, like Jeremy I immediately feel &#8220;very uncomfortable about monolithic technologies that require to go all-in&#8221;.</p>
+<p>My bias surely comes from working on PHP-based server-side applications (e.g. not fully decoupled Drupal), which rules out depending entirely on any JS-exclusive initial markup rendering. So things like skatejs, vux, elm-lang or any react-like framework seem to make difficult or redhibitory the cherry-picking of relevant components to integrate (and/or to create / extend for reuse).</p>
+<p>One of the most important information here is perhaps &#8220;all custom elements fallback to a &#8221; : the example with children helps getting an idea about how Web Components could be approached.</p>
+<p>As a standard, the Web Components specs may serve as a model of architecture for something like transpilers to generate more specific variants. I&#8217;m currently doing some (slow) research to experiment on this idea at <a href="https://github.com/Paulmicha/css-organization" rel="nofollow">https://github.com/Paulmicha/css-organization</a></p>
+</div>
+</div>
+</li>
+<li class="post pingback">
+<p>Pingback: <a href='http://skokov.xyz/front-end-development-1-7-august/' rel='external nofollow' class='url'>Front-End Development (1 &#8211; 7 August) &#8211; Skokov</a>()</p>
+</li>
+</li>
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-332">
+<div id="dsq-comment-header-332" class="dsq-comment-header">
+<cite id="dsq-cite-332">
+<span id="dsq-author-user-332">Ollie Williams</span>
+</cite>
+</div>
+<div id="dsq-comment-body-332" class="dsq-comment-body">
+<div id="dsq-comment-message-332" class="dsq-comment-message"><p>What has your experience been like using shadow DOM for normal HTML elements? It looks like it will gain cross-browser support far sooner than custom elements but no one ever writes about using it by itself, even though it sounds like it could be useful/cool</p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</article>
+<nav class="page-nav clearfix">
+<div class="align-left">
+<a href="2016/06/how-to-make-a-chilli/" rel="prev">&laquo; previous post</a> </div>
+<div class="align-right">
+<a href="2016/08/new-interview-on-bem-or-not-to-bem/" rel="next">next post &raquo;</a> </div>
+</nav>
+</div>
+<footer class="global-footer">
+<div class="container clearfix">
+<div class="footer-col">
+<h2>Buy now!</h2>
+<a href="http://www.amazon.co.uk/gp/product/1430259140/ref=as_li_ss_il?ie=UTF8&camp=1634&creative=19450&creativeASIN=1430259140&linkCode=as2&tag=adamonishicom-21" class="book-advert">
+<img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1430259140&Format=_SL250_&ID=AsinImage&MarketPlace=GB&ServiceVersion=20070822&WS=1&tag=adamonishicom-21">
+Buy Pro WordPress Theme Development on&nbsp;Amazon
+</a>
+<img src="http://ir-uk.amazon-adsystem.com/e/ir?t=adamonishicom-21&l=as2&o=2&a=1430259140" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+</div>
+<div class="footer-col">
+<h2>Find me on&hellip;</h2>
+<div class="menu"></div>
+<h2>Other projects&hellip;</h2>
+<div class="menu"></div>
+</div>
+</div>
+</footer>
+<script type='text/javascript' src='https://s0.wp.com/contents/js/devicepx-jetpack.js?ver=201835'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.7.11","language":""},"disqusIdentifier":"1089 http:\/\/\/?p=1089","disqusShortname":"adamonishi","disqusTitle":"Web Components and progressive enhancement","disqusUrl":"http:\/\/\/2016\/08\/web-components-and-progressive-enhancement\/","options":{"manualSync":false},"postId":"1089"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='contents/lib/disqus-comment-system/media/js/disqus.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"adamonishi"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='contents/lib/disqus-comment-system/media/js/count.js'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201835.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.9',blog:'66522726',post:'1089',tz:'0',srv:''} ]);
+	_stq.push([ 'clickTrackerInit', '66522726', '1089' ]);
+</script>
+<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-33181687-1', '');
+			ga('send', 'pageview');
+		</script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<base href="/" />
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to design &amp; build a website in 4 hours. - Adam Onishi</title>
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to design &amp; build a website in 4 hours. - Adam Onishi" />
+<meta property="og:description" content="Last week A few weeks ago I gave myself a challenge, I&#8217;ve had the domain  for well over a year now and done absolutely nothing with it. So I decided spontaneously on a Monday to attempt that evening to build a quick blog site and get it launched that night. In the end it &hellip;" />
+<meta property="og:url" content="2014/06/how-to-design-build-a-website-in-4-hours/" />
+<meta property="og:site_name" content="Adam Onishi" />
+<meta property="article:section" content="Development" />
+<meta property="article:published_time" content="2014-06-29T09:18:37+00:00" />
+<meta property="article:modified_time" content="2015-03-18T15:36:57+00:00" />
+<meta property="og:updated_time" content="2015-03-18T15:36:57+00:00" />
+<meta property="fb:admins" content="813620262" />
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+
+<link rel='stylesheet' id='fonts-css' href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic%3A400%2C400italic%2C700%7COpen+Sans%3A800%2C300%2C400&#038;ver=4.7.11' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css' href='contents/lib/jetpack/css/jetpack.css' type='text/css' media='all' />
+
+
+
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'>
+<link rel='dns-prefetch' href='//i0.wp.com'>
+<link rel='dns-prefetch' href='//i1.wp.com'>
+<link rel='dns-prefetch' href='//i2.wp.com'>
+<style>html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font-family: 'Gentium Book Basic', serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #3b3b3b;
+  background-color: #f5ecd9;
+}
+@media screen and (min-width: 37.5em) {
+  body {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 46.25em) {
+  body {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 55em) {
+  body {
+    font-size: 28px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 3.375em;
+  line-height: 1.25;
+}
+
+.post h2 {
+  font-size: 2em;
+}
+
+.single .post h1 {
+  font-size: 2em;
+}
+.single .post h2 {
+  font-size: 1.5em;
+}
+.single .post h3 {
+  font-size: 1.25em;
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin: 0 0 1.4em;
+}
+
+ul {
+  list-style: disc;
+}
+ul ul {
+  list-style: circle;
+}
+
+ol {
+  list-style: decimal;
+}
+ol ol {
+  list-style: lower-roman;
+}
+
+blockquote {
+  padding-left: 30px;
+  border-left: 4px solid #2BACB8;
+}
+
+a {
+  color: #e8275b;
+  text-decoration: none;
+  border-bottom: 2px solid #e8275b;
+}
+a:active {
+  position: relative;
+  top: 1px;
+}
+
+h1 a,
+h2 a {
+  color: #3b3b3b;
+  border-bottom: 0;
+}
+
+.align-left {
+  float: left;
+  text-align: left;
+}
+
+.align-right {
+  float: right;
+  text-align: right;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.container.inner {
+  max-width: 880px;
+}
+
+.global-header {
+  padding: 40px 0 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  border-bottom: 6px solid #2BACB8;
+}
+.global-header h1 {
+  margin-bottom: 0.175em;
+}
+.global-header p {
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+.global-footer {
+  width: 100%;
+  padding: 40px 0;
+  color: #F5ECD9;
+  background-color: #2BACB8;
+}
+.global-footer h2 {
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-col {
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  margin-right: 0;
+}
+@media screen and (min-width: 30em) {
+  .footer-col {
+    width: 40%;
+    min-height: 1px;
+    margin-right: 10%;
+  }
+}
+@media screen and (min-width: 55em) {
+  .footer-col {
+    width: 25%;
+    min-height: 1px;
+    margin-right: 5%;
+  }
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0 0 25px;
+  padding: 0;
+}
+.footer-col li {
+  line-height: 1;
+}
+.footer-col a {
+  color: #f5ecd9;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  border-bottom: 0;
+}
+
+.book-advert {
+  display: block;
+  max-width: 200px;
+  color: #fff;
+  border-bottom: 0;
+}
+.book-advert img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 10px;
+}
+
+.post {
+  margin-bottom: 40px;
+}
+.post header {
+  margin-bottom: 30px;
+}
+.post time {
+  color: #e8275b;
+}
+.post:after {
+  content: '';
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  border-bottom: 1px solid #2BACB8;
+}
+.post img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 1.4em auto 0;
+}
+.post .wp-caption-text {
+  margin-top: -1.4em;
+  padding: 7px 10px;
+  font-size: 14px;
+  font-size: .875rem;
+  background-color: #fff;
+}
+.post .flex-video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+}
+.post .flex-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page-nav {
+  margin-bottom: 2em;
+}
+</style> </head>
+<body class="post-template-default single single-post postid-341 single-format-standard">
+<!--[if lt IE 9]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+<header class="global-header" role="banner">
+<div class="container">
+<h1><a href="">Adam Onishi</a></h1>
+<p class="tagline">Web developer and designer focusing on accessibility, progressive enhancement, and high quality code.</p>
+</div>
+<nav>
+<div class="container">
+<div class="menu"></div>
+</div>
+</nav>
+</header>
+<div class="container inner">
+<article role="main" class="post-341 post type-post status-publish format-standard hentry category-development category-wordpress">
+<header>
+<h1>How to design &#038; build a website in 4 hours.</h1>
+<p class="byline">
+Posted on <time>29th June, 2014</time>, in <a href="category/development/" rel="category tag">Development</a> and <a href="category/wordpress/" rel="category tag">WordPress</a> </p>
+</header>
+<p><del datetime="2014-06-02T21:03:59+00:00">Last week</del> A few weeks ago I gave myself a challenge, I&#8217;ve had the domain <a href=""></a> for well over a year now and done absolutely nothing with it. So I decided spontaneously on a Monday to attempt that evening to build a quick blog site and get it launched that night. In the end it actually took me 2 nights spending a total of four hours designing and building the site (plus about 45 mins deploying it), which was launched finally on the Wednesday morning. I&#8217;m actually quite happy with the end result, there are quite a few bugs and lots of things I could spend time tidying up, but I&#8217;m really pleased to finally have a site up and running after so long.</p>
+<p>Here I just want to talk through what I did to get it set up, the little things I used to help me get something that worked and looked alright to me.</p>
+<h2>WordPress</h2>
+<p>For a while I&#8217;ve wanted to build a quick and simple WordPress theme that composed of as few files as possible. So I decided to combine this challenge with trying to get the site turned around in as little time as possible. For me WordPress is basically my go-to CMS for most things, it does pretty much everything I need and no matter what people say it&#8217;s still great for just a simple blog.</p>
+<p>The overall structure of the site was pretty easy to come up with, a header, a content area, some pagination links, and a footer with a few bits of supplementary content. There would also generally be only two types of page on the basic blog, an archive (listing) page, and a single post page. Now, due to the nature of trying to create this WordPress theme with a few templates as possible I decided to take care of these just using the <code>index.php</code> file, making use of some of the WordPress conditional functions to decide on what type of content to display. Here&#8217;s the entire loop section of the template where you can see both pages share a lot of similar content, with the conditional statement only being used to output a different main body content of the article.</p>
+<pre><code>&lt;?php if( have_posts() ): while( have_posts() ): the_post(); ?&gt;
+
+    &lt;article role="main" &lt;?php post_class(); ?&gt;&gt;
+        &lt;header&gt;
+            &lt;h2&gt;&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&lt;/h2&gt;
+            &lt;p class="byline"&gt;
+                Posted on &lt;time&gt;&lt;?php echo get_the_date(); ?&gt;&lt;/time&gt;, in &lt;?php the_category(', '); ?&gt;
+            &lt;/p&gt;
+        &lt;/header&gt;
+
+        &lt;?php if( is_single() ): ?&gt;
+            &lt;?php the_content(); ?&gt;
+        &lt;?php else: ?&gt;
+            &lt;p class="excerpt"&gt;&lt;?php the_excerpt(); ?&gt;&lt;/p&gt;
+            &lt;p class="read-more"&gt;&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;Read full post &amp;raquo;&lt;/a&gt;&lt;/p&gt;
+        &lt;?php endif; ?&gt;
+    &lt;/article&gt;
+
+&lt;?php endwhile; endif; ?&gt;
+</code></pre>
+<p>Thanks to this I managed to keep the theme down to only 3 files in the end. The functions file is used to just set up a load of options in WordPress and to remove a few bits of unwanted meta data WordPress likes to output by default, and the third is the <code>style.css</code>. You can find the entire theme up on my <a href="https://github.com/onishiweb/simple-theme">Github here</a>, I&#8217;ve got quite a bit of work still to do on it so excuse some of the code for the moment.</p>
+<h3>Vanilla CSS</h3>
+<p>Just a quick note on why I decided to write plain old CSS for once on this project, it was really just so I didn&#8217;t spend 10 minutes to an hour going over my Sass/Compass set up. I often find it easy to procrastinate with things like that which is exactly what I didn&#8217;t want to do with this project.</p>
+<p>Sometimes I find it nice to go back to the bare essentials of our work and write without a framework or pre-processor or any of the many many tools we have now. It helps to remind me what actually does go into the browser and how to write it better and more efficiently. I did another quick project recently and stuck to plain CSS again and once more I ended up taking a bit more from it than I would have if I&#8217;d just have written Sass as usual, it just helps you think in a slightly different way.</p>
+<h2>Design</h2>
+<p>I think the design side of the site is probably the reason I&#8217;ve had the domain so long and not done anything with it yet. Trying to design for yourself is always one of the biggest challenges you can take on as a project. I can build a simple WordPress theme in minutes, but when it comes to selecting fonts, colours, and a layout I can sit and stare at my screen for hours and get nowhere. So due to the challenge I&#8217;d given myself and the short deadline, I decided to cheat a little.</p>
+<h3>Selecting fonts</h3>
+<p>I hate choosing fonts, there&#8217;s more fonts than I&#8217;d care to count now that web fonts are the default on the modern web. I remember when you could count the number of font choices you had on your fingers, and that included things like Comic Sans, which no one that called themselves a &#8220;designer&#8221; would ever dream of using.</p>
+<p>I understand the importance of good typography when it comes to design, I&#8217;ve listened to plenty of talks and read loads of articles trying to improve my understanding, I&#8217;ve learned about ligatures, ascenders, descenders, glyphs, widows, orphans, and the rest. But for the life of me I still can&#8217;t choose a pair of fonts that look good together. This was my first opportunity to cheat a little. I simply googled &#8220;good Google Font combinations&#8221; and had a look around. The site I eventually took inspiration from is the lovely <a href="http://hellohappy.org/beautiful-web-type/">Beautiful Web Type</a> website by <a href="http://twitter.com/ubuwaits">Chad Mazzola</a>. After staring at it for a while I settled on <a href="http://hellohappy.org/beautiful-web-type/#nietzsche">this combination</a> of <a href="http://www.google.com/fonts/specimen/Open+Sans">Open Sans</a>, and <a href="http://www.google.com/fonts/specimen/Gentium+Book+Basic">Gentium Book Basic</a>. With a couple of tweaks to letter spacing and line heights, they make a really good combination.</p>
+<h3>Colour palette</h3>
+<p>The next challenge was to select a colour palette for the site, again something I&#8217;m not very good at doing. My usual inspiration for colour palettes come from superheroes, if you&#8217;ve ever seen me give a talk in the last year, you will probably have noticed the familiar comic book style fonts paired with a colour palette inspired by Batman. That&#8217;s about as far as I go with design creativity usually!</p>
+<p>This led me to my second opportunity to cheat a little. Almost any time I&#8217;m working with colour and need to test out some colour options I turn to <a href="https://kuler.adobe.com/">Adobe&#8217;s Kuler tool</a>. I can&#8217;t remember how long I spent searching through the <a href="https://kuler.adobe.com/explore/most-popular/?time=month">explore section</a> of the site. I was looking for a specific set of things in the palette, namely a light colour for the background, a black/grey for the text and a strong colour or two to use for highlighting parts of the design. Eventually I found the <a href="https://kuler.adobe.com/Pop-of-Pink-color-theme-3623190/">Pop of Pink</a> theme that had everything I needed. I really like how the strong pink works as a bold colour to pick out the links, it&#8217;s probably one of my favourite parts of the design.</p>
+<h3>Responsive design</h3>
+<p>Finally I just want to mention a small point about the responsive design of the site. It&#8217;s nothing special of course, at the moment the site is simply a one column layout so really there&#8217;s nothing too fancy to cover. Except when you&#8217;re building a single column layout, how do you define your breakpoints? Do you even need breakpoints? Surely a good font size and a max-width is all you need&#8230;</p>
+<p>I decided that I would use the single column layout to do something I&#8217;ve been wanting to try out for a couple of years now but haven&#8217;t had the chance based on the limited amount of design work I actually do for myself. I&#8217;ve set the breakpoints up to allow for an optimal line length based on the font size. As the width of the site increases I&#8217;ve bumped up the font size whenever the line length gets a bit uncomfortable to read. There&#8217;s a max-width on the site as well just to make sure the font-size doesn&#8217;t get too large to be uncomfortable as well, although based on sites like <a href="http://stuffandnonsense.co.uk/blog/about/hide-sharp-objects">Andrew Clarke&#8217;s</a> or <a href="http://www.zeldman.com/">Jeffrey Zeldman&#8217;s</a> blogs I could have gone a bit larger with the type and it still been readable.</p>
+<h2>Work in Progress</h2>
+<p>The site is still very much a work in progress and development has been a bit stale for the last month or so &#8211; there&#8217;s still the broken bits it launched with (hint: don&#8217;t visit a <a href="category/speaking/">category page</a> the titles are HUGE!). I&#8217;m working on switching the styles over to Sass to help making the little fixes a lot quicker to do, and soon I&#8217;ll be working on setting up a few more sections to the site like an about page and a speaking section seen as I&#8217;m doing that a little more lately.</p>
+<p>I&#8217;m still unsure about adding comments locally, I like hearing what others have to say about the things I write about. Based on what I&#8217;m aiming to write about in the near future as well, I think comments in the context of the post itself might be the best option to keep the discussion going as opposed to losing the discussion if we left it up to Twitter or an equally volatile medium. But for now if you do have any comments, feel free to tweet at me and I&#8217;ll happily continue on the discussion.</p>
+<h2>Final thoughts</h2>
+<p>I guess this goes to show that it is definitely possible to build a website in a very short amount of time. But to do so, you need inspiration, a system you have plenty of knowledge in to quickly put together what you want, and ultimately you need to be able to cheat a little.</p>
+<p>Thanks for reading.</p>
+ </article>
+<nav class="page-nav clearfix">
+<div class="align-left">
+<a href="2014/05/there-is-no-such-thing-as-a-work-life-balance-working-with-burnout/" rel="prev">&laquo; previous post</a> </div>
+<div class="align-right">
+<a href="2014/06/beepcheeks-responsive-day-out-2/" rel="next">next post &raquo;</a> </div>
+</nav>
+</div>
+<footer class="global-footer">
+<div class="container clearfix">
+<div class="footer-col">
+<h2>Buy now!</h2>
+<a href="http://www.amazon.co.uk/gp/product/1430259140/ref=as_li_ss_il?ie=UTF8&camp=1634&creative=19450&creativeASIN=1430259140&linkCode=as2&tag=adamonishicom-21" class="book-advert">
+<img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1430259140&Format=_SL250_&ID=AsinImage&MarketPlace=GB&ServiceVersion=20070822&WS=1&tag=adamonishicom-21">
+Buy Pro WordPress Theme Development on&nbsp;Amazon
+</a>
+<img src="http://ir-uk.amazon-adsystem.com/e/ir?t=adamonishicom-21&l=as2&o=2&a=1430259140" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+</div>
+<div class="footer-col">
+<h2>Find me on&hellip;</h2>
+<div class="menu"></div>
+<h2>Other projects&hellip;</h2>
+<div class="menu"></div>
+</div>
+ </div>
+</footer>
+<script type='text/javascript' src='https://s0.wp.com/contents/js/devicepx-jetpack.js?ver=201835'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"adamonishi"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='contents/lib/disqus-comment-system/media/js/count.js'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201835.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.9',blog:'66522726',post:'341',tz:'0',srv:''} ]);
+	_stq.push([ 'clickTrackerInit', '66522726', '341' ]);
+</script>
+<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-33181687-1', '');
+			ga('send', 'pageview');
+		</script>
+</body>
+</html>

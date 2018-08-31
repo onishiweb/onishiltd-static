@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<base href="/" />
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Designer Developer relationship - Adam Onishi</title>
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Designer Developer relationship - Adam Onishi" />
+<meta property="og:description" content="I&#8217;ve been a web developer for a few years now, mainly working at an agency, but with some freelance experience too. Generally this has meant the projects I work on will usually be alongside a designer, a situation which I&#8217;m sure many people are familiar with. This designer/developer relationship will therefore form the basis of &hellip;" />
+<meta property="og:url" content="2012/09/the-designer-developer-relationship/" />
+<meta property="og:site_name" content="Adam Onishi" />
+<meta property="article:section" content="Conferences" />
+<meta property="article:published_time" content="2012-09-05T00:00:49+00:00" />
+<meta property="article:modified_time" content="2015-03-18T15:36:57+00:00" />
+<meta property="og:updated_time" content="2015-03-18T15:36:57+00:00" />
+<meta property="fb:admins" content="813620262" />
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+
+<link rel='stylesheet' id='fonts-css' href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic%3A400%2C400italic%2C700%7COpen+Sans%3A800%2C300%2C400&#038;ver=4.7.11' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css' href='contents/lib/jetpack/css/jetpack.css' type='text/css' media='all' />
+
+
+
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'>
+<link rel='dns-prefetch' href='//i0.wp.com'>
+<link rel='dns-prefetch' href='//i1.wp.com'>
+<link rel='dns-prefetch' href='//i2.wp.com'>
+<style>html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+body {
+  font-family: 'Gentium Book Basic', serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #3b3b3b;
+  background-color: #f5ecd9;
+}
+@media screen and (min-width: 37.5em) {
+  body {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 46.25em) {
+  body {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 55em) {
+  body {
+    font-size: 28px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 3.375em;
+  line-height: 1.25;
+}
+
+.post h2 {
+  font-size: 2em;
+}
+
+.single .post h1 {
+  font-size: 2em;
+}
+.single .post h2 {
+  font-size: 1.5em;
+}
+.single .post h3 {
+  font-size: 1.25em;
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin: 0 0 1.4em;
+}
+
+ul {
+  list-style: disc;
+}
+ul ul {
+  list-style: circle;
+}
+
+ol {
+  list-style: decimal;
+}
+ol ol {
+  list-style: lower-roman;
+}
+
+blockquote {
+  padding-left: 30px;
+  border-left: 4px solid #2BACB8;
+}
+
+a {
+  color: #e8275b;
+  text-decoration: none;
+  border-bottom: 2px solid #e8275b;
+}
+a:active {
+  position: relative;
+  top: 1px;
+}
+
+h1 a,
+h2 a {
+  color: #3b3b3b;
+  border-bottom: 0;
+}
+
+.align-left {
+  float: left;
+  text-align: left;
+}
+
+.align-right {
+  float: right;
+  text-align: right;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.container.inner {
+  max-width: 880px;
+}
+
+.global-header {
+  padding: 40px 0 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  border-bottom: 6px solid #2BACB8;
+}
+.global-header h1 {
+  margin-bottom: 0.175em;
+}
+.global-header p {
+  font-size: 1em;
+  margin-bottom: 0;
+}
+
+.global-footer {
+  width: 100%;
+  padding: 40px 0;
+  color: #F5ECD9;
+  background-color: #2BACB8;
+}
+.global-footer h2 {
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-col {
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  margin-right: 0;
+}
+@media screen and (min-width: 30em) {
+  .footer-col {
+    width: 40%;
+    min-height: 1px;
+    margin-right: 10%;
+  }
+}
+@media screen and (min-width: 55em) {
+  .footer-col {
+    width: 25%;
+    min-height: 1px;
+    margin-right: 5%;
+  }
+}
+.footer-col ul {
+  list-style: none;
+  margin: 0 0 25px;
+  padding: 0;
+}
+.footer-col li {
+  line-height: 1;
+}
+.footer-col a {
+  color: #f5ecd9;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  border-bottom: 0;
+}
+
+.book-advert {
+  display: block;
+  max-width: 200px;
+  color: #fff;
+  border-bottom: 0;
+}
+.book-advert img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 10px;
+}
+
+.post {
+  margin-bottom: 40px;
+}
+.post header {
+  margin-bottom: 30px;
+}
+.post time {
+  color: #e8275b;
+}
+.post:after {
+  content: '';
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  border-bottom: 1px solid #2BACB8;
+}
+.post img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 1.4em auto 0;
+}
+.post .wp-caption-text {
+  margin-top: -1.4em;
+  padding: 7px 10px;
+  font-size: 14px;
+  font-size: .875rem;
+  background-color: #fff;
+}
+.post .flex-video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+}
+.post .flex-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page-nav {
+  margin-bottom: 2em;
+}
+</style> </head>
+<body class="post-template-default single single-post postid-277 single-format-standard">
+<!--[if lt IE 9]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+<header class="global-header" role="banner">
+<div class="container">
+<h1><a href="">Adam Onishi</a></h1>
+<p class="tagline">Web developer and designer focusing on accessibility, progressive enhancement, and high quality code.</p>
+</div>
+<nav>
+<div class="container">
+<div class="menu"></div>
+</div>
+</nav>
+</header>
+<div class="container inner">
+<article role="main" class="post-277 post type-post status-publish format-standard hentry category-conferences category-speaking">
+<header>
+<h1>The Designer Developer relationship</h1>
+<p class="byline">
+Posted on <time>5th September, 2012</time>, in <a href="category/conferences/" rel="category tag">Conferences</a> and <a href="category/speaking/" rel="category tag">Speaking</a> </p>
+</header>
+<p>I&#8217;ve been a web developer for a few years now, mainly working at an agency, but with some freelance experience too. Generally this has meant the projects I work on will usually be alongside a designer, a situation which I&#8217;m sure many people are familiar with. This designer/developer relationship will therefore form the basis of their work together and I believe to produce great work you need a great working relationship. For me personally it&#8217;s been a bit of a love/hate experience and I&#8217;d like to share some of those experiences here and look at how it can be made into a much more enjoyable partnership for both roles.</p>
+<p>From my experiences I&#8217;m yet to work with many designers who know that much, if anything, about coding. And for the most part I&#8217;m terrible at designing! However I&#8217;m not here to say that designers should learn code and developers should learn to design&#8230; In my opinion it&#8217;s each to their own. If you want to learn another discipline that&#8217;s great and no doubt it will help with your work and your understanding of the wider picture. I&#8217;ve worked on teams though, where people are either out-and-out designers or developers and they are still extremely successful, in that situation it&#8217;s been because of a strong collaboration between the pair that makes the team successful. Unfortunately that&#8217;s not always the case and sometimes there can be disagreement, conflict and ill feelings towards one another. I&#8217;d like to look at how we can prevent things like that from happening and create a relationship which leads to great work and a good feeling between both designer and developer.</p>
+<h2>I love my job</h2>
+<p>Put simply, I love my job! I&#8217;m a terrible designer, but when given a flat design I can turn that into a masterpiece of code &#8211; well I like to think so anyway &#8211; and I really enjoy it. I think if I were to design as well as code I wouldn&#8217;t be able to produce anything close to what I do now working alongside a designer. Having someone to work alongside and bounce ideas off is fantastic, as great as it feels to produce a brilliant piece of individual work, there no feeling like working with someone, being inspired by their ideas and having them respond excitedly to something you&#8217;re done.</p>
+<p>And I love the challenge! If I were to design things for myself I don&#8217;t think I would be able to generate freedom from the code, I would design things knowing that I could code them easily or similar to something I&#8217;ve already seen. With a designer who doesn&#8217;t work with code they&#8217;re not bound as much by those contraints, they can design something which they think will look and work great and be as creative in that process as possible and it&#8217;s my job to work out how to turn that into code, and that&#8217;s where I get to have fun.</p>
+<h2>The not so good bits, and how easy they are to fix</h2>
+<p>Although the designer/developer relationship can be amazing and lead to some fantastic results, there are some things that can interrupt that creative process and cause the relationship to sour. There may be times where a designer or developer &#8211; whether internally or openly &#8211; believes that their discipline is superior and should be considered more important in the process, which is absolute rubbish. But I think Cassie McDaniel put this a little more eloquently in her post on the subject &#8220;Copy, art, typography — and technology — are the bones of a project, where design and development are the joints and skin that connect and hold together the parts.&#8221;</p>
+<p>So putting aside egos, there are some common circumstances which we may come across through the course of a working relationship that are going to cause issues in the final outcome and maybe damage the relationship for further projects. One positive I mentioned earlier, that designers who aren&#8217;t that knowledgeable about code are more free from the constraints a developer might feel, can sometimes be a downside too. At times designers I&#8217;ve worked with at least &#8211; I&#8217;m sure that it&#8217;s not just me &#8211; have sold concepts to a client which, that when it comes time to build aren&#8217;t as simple as the designer thought and have either been under-sold or not given the necessary time to complete. This can be easily solved simply by communication, just speaking to the developer about the proposed solution before the client is sold the concept can mean it can be adjusted to work better for the clients budget or the client can be made aware of possible extra time/money needed for a solution which is best suited to them.</p>
+<p>Developers can also be a pain when they choose to speak in too much technical detail about what they want to do or are doing on a project. Learn to talk more human language, just because you know exactly what you mean, it doesn&#8217;t mean the everyone else will &#8211; including the designer who needs to understand. Explain things clearly and easily and you&#8217;ll have a much better chance of getting the idea accross or comments on the design understood so something can actually be done about it.</p>
+<p>Both parties need to stay up to date as well, developments in the industry, new ideas, tools and techniques. I probably don&#8217;t have to tell that to people reading this post or who saw this talk because clearly you&#8217;re already doing that. But what about the others in your office, is the developer you work with here as well, or are they back in the office because they couldn&#8217;t afford to come or don&#8217;t think they gain that much from conferences. If that&#8217;s the case it&#8217;s then your job to go back to them with all of these new fantastic ideas that you&#8217;ve picked up and expose them to it. After Reasons to be Creative I&#8217;m planning on going back into the office and doing a short talk to tell people about what I&#8217;ve learned there so they can take away some of the things I have.</p>
+<h2>Work more closely as a team</h2>
+<p>The biggest issue I think I have though is when a designer/developer relationship just isn&#8217;t that at all, when it turns into a conveyor belt process where things are just handed on from one person to the next and people have no involvement in anything outside their own discipline. This isn&#8217;t just bad practice but it&#8217;s extremely detrimental to the working relationship and can lead to people feeling completely removed from the project as a whole, resenting the work, and other members of the team. The most effective way to solve this is to include everyone in the process right from the start, having developers in meetings earlier and even with the client can lead to better results and sometimes more creative ideas, as developers know how to bend the technology to solve certain problems, something a designer might not have the technical know-how for. Throughout the process as well I think it&#8217;s important that both the designer and developer remain in touch with each other, talking about what&#8217;s going on both in design and development, it means we have to make ourselves available to each other and to willingly engage at all stages of the project. If there are problems discuss them openly and don&#8217;t be snarky, learn to give <a title="Mark Boulton - It's not working for me #crit" href="http://www.markboulton.co.uk/journal/comments/its-not-working-for-me-crit">better critique and how to take criticism openly</a>.</p>
+<p>Another possible solution is to look at your process as a whole, a lot of people are still working to a waterfall like process where maybe now we could be thinking more agile. Working closely together to produce something quickly and iteratively. With the move into a more responsive web as well this can only be a good thing, otherwise it could lead to designers producing multiple versions of each page design when a conversation with a developer or working to create it in the browser as soon as possible would be much more appropriate. For an example you could take a look at <a title="Andy Clarke" href="http://www.stuffandnonsense.co.uk/">Andy Clarke&#8217;s</a> recent <a title="Andy Clarke - Designing for ISO" href="http://www.stuffandnonsense.co.uk/blog/about/designing_for_iso">case study of the agile process</a> he used when rebuilding the new <a title="ISO - International Organization for Standardization" href="http://www.iso.org/iso/home.html">responsive ISO website</a>.</p>
+<h2>Why should we bother</h2>
+<p>Now what I&#8217;ve said is great in theory of course, but it may mean a lot of work for some companies, breaking their current process or some might think, it&#8217;s all well and good but when you&#8217;re trying to earn money there&#8217;s time to worry about relationships. So let me just give you a few reasons why I think this is important.</p>
+<p>Getting a developer involved earlier in the process and working more closely as a team throughout the project can lead to people feeling more compassion for the project. A developer understanding why a design decision has been made because they&#8217;ve been involved in the meetings with the client that explained them. Or the designer having a developer there to help with a possible solution to give them technical advice they need at the right time may help them avoid going back over the design again after they&#8217;ve already put a lot of work into it.</p>
+<p>If you think of the designer/developer relationship in terms of the partnership between driver and co-driver in a rally team. Both have their own speciality, both would be useless without the other. If they don&#8217;t have a good working relationship, communicate well and use each other to do the best job possible they&#8217;re not going to win anything. They have their individual jobs to do and they prepare and work on them a little separately I&#8217;m sure, but when it comes to the race, they&#8217;re side by side working together to get the best time.</p>
+<p>And if they don&#8217;t work well together, there&#8217;s inevitably going to be a crash at some point!</p>
+<h2>Hug it out</h2>
+<p>The relationship between designer and developer can be irritating at times, there can be bad feelings, poor communication or none at all. But without each other we wouldn&#8217;t be able to create the amazing, inspiring websites we do and have fun in the process. We work best as a team when we complement each other and work towards a similar goal, so before you go into your next project, find the developer/designer you&#8217;re working with, and hug it out!</p>
+ </article>
+<nav class="page-nav clearfix">
+<div class="align-left">
+<a href="2012/05/centered-menus/" rel="prev">&laquo; previous post</a> </div>
+<div class="align-right">
+<a href="2012/09/burnout/" rel="next">next post &raquo;</a> </div>
+</nav>
+</div>
+<footer class="global-footer">
+<div class="container clearfix">
+<div class="footer-col">
+<h2>Buy now!</h2>
+<a href="http://www.amazon.co.uk/gp/product/1430259140/ref=as_li_ss_il?ie=UTF8&camp=1634&creative=19450&creativeASIN=1430259140&linkCode=as2&tag=adamonishicom-21" class="book-advert">
+<img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1430259140&Format=_SL250_&ID=AsinImage&MarketPlace=GB&ServiceVersion=20070822&WS=1&tag=adamonishicom-21">
+Buy Pro WordPress Theme Development on&nbsp;Amazon
+</a>
+<img src="http://ir-uk.amazon-adsystem.com/e/ir?t=adamonishicom-21&l=as2&o=2&a=1430259140" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+</div>
+<div class="footer-col">
+<h2>Find me on&hellip;</h2>
+<div class="menu"></div>
+<h2>Other projects&hellip;</h2>
+<div class="menu"></div>
+</div>
+</div>
+</footer>
+<script type='text/javascript' src='https://s0.wp.com/contents/js/devicepx-jetpack.js?ver=201835'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"adamonishi"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='contents/lib/disqus-comment-system/media/js/count.js'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201835.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.9',blog:'66522726',post:'277',tz:'0',srv:''} ]);
+	_stq.push([ 'clickTrackerInit', '66522726', '277' ]);
+</script>
+<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-33181687-1', '');
+			ga('send', 'pageview');
+		</script>
+</body>
+</html>
